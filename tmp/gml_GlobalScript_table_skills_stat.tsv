@@ -1,0 +1,227 @@
+	Object	Target	Range	KD	MP	Reserv	Duration	AOE_Lenght	AOE_Width	is_movement	Pattern	Class	Bonus_Range	Starcast	Branch	is_knockback	Crime	metacategory	FMB	AP	Attack	Stance	Charge	Maneuver	Spell	
+Trap_Search	object	No Target	0	0	0	0	0	0	0	0	normal	skill	0		none	0			0	0						
+Flaying	o_flaying	Target Object	1	0	5	0	0	0	0	0	normal	skill	0		none	0			0	0						
+// RANGED																										
+Taking_Aim	o_b_taking_aim	No Target	0	1	4	0	1	0	0	0	normal	skill	0		ranged	0		weapon	0	0				1		
+Distracting_Shot	o_distracting_shot	Target Point	2	16	18	0	0	0	0	1	normal	skill	0	s_distractingshotcast_	ranged	0	1	weapon	0	0	1		1			
+Long_Range_Shot	o_long_range_shot	Target Point	range	12	14	0	0	0	0	0	normal	skill	1	s_longrangeshotcast_	ranged	0	1	weapon	0	0	1					
+Suppression	o_b_suppression	No Target	0	10	10	0	12	0	0	0	normal	skill	0		ranged	1		weapon	0	0		1				
+Pierce_Through_Missile	o_pierce_through_missile	Target Point	range	10	14	0	0	0	0	0	normal	skill	1	s_piercethroughcast_	ranged	0	1	weapon	0	0	1					
+Headshot	o_headshot	Target Object	range	20	20	0	0	0	0	0	normal	skill	0	s_headshotcast_	ranged	0	1	weapon	0	0	1					
+Hunters_Mark	o_hunters_mark	Target Object	range	12	12	0	10	0	0	0	normal	skill	0	s_huntermarkcast_	ranged	0	1	weapon	0	0	1			1		
+// SWORDS																										
+Keeping_Distance	o_keeping_distance	Target Point	1	10	14	0	0	0	0	1	normal	skill	0	s_keepdistance_	sword	0		weapon	0	0				1		
+Cleave	o_cut_wave_birth	Target Area	1	8	16	0	0	1	3	0	normal	skill	0	s_cleavecast_	sword	0		weapon	0	0	1					
+Advance	o_advance	Target Object	4	12	24	0	0	0	0	1	normal	skill	0	s_advancecast_	sword	0		weapon	0	0	1		1			
+Fencer_Stance	o_b_fencer_stance	No Target	0	10	12	0	12	0	0	0	normal	skill	0		sword	0		weapon	0	0		1				
+// 2H SWORDS																										
+Feint_Swing	o_feint_swing	Target Object	1	10	10	0	0	0	0	0	normal	skill	0	s_feintstrikecast_	2hsword	0		weapon	0	0	1					
+Riposte	o_b_riposte	No Target	0	8	12	0	2	0	0	0	normal	skill	0		2hsword	0		weapon	0	0				1		
+Steel_Feast	o_b_steel_feast	No Target	0	10	10	0	12	0	0	0	normal	skill	0		2hsword	0		weapon	0	0		1				
+Arc_Cleave	o_arc_cleave_birth	Target Area	1	14	18	0	0	1	1	0	five	skill	0	s_arccleavecast_	2hsword	0		weapon	0	0	1					
+Heroic_Charge	o_heroic_leap	Target Object	3	16	24	0	0	0	0	1	normal	skill	0	s_heroicchargecast_	2hsword	0		weapon	0	0	1		1			
+// 2H MACES																										
+Mighty_Swing	o_b_mighty_swing	No Target	0	1	6	0	1	0	0	0	normal	skill	0		2hmace	0		weapon	0	0				1		
+Unstoppable_Force	o_unstoppable_force_birth	Target Area	1	12	12	0	0	1	3	0	normal	skill	0	s_unstoppableforcecast_	2hmace	1		weapon	0	0	1					
+Mayhem	o_b_carnage	No Target	0	10	10	0	12	0	0	0	normal	skill	0		2hmace	0		weapon	0	0		1				
+Forceful_Slam	o_forceful_slam	Target Object	1	14	14	0	0	0	0	0	normal	skill	0		2hmace	0		weapon	0	0	1					
+Skull_Crusher	o_skull_crusher	Target Object	2	16	18	0	0	0	0	1	normal	skill	0	s_scullcrushercast_	2hmace	0		weapon	0	0	1		1			
+// 2H AXES																										
+Wide_Cut	o_wide_cut	Target Object	2	12	12	0	0	0	0	0	normal	skill	0	s_widecutcast_	2haxe	0		weapon	0	0	1					
+Dismember	o_dismember	Target Object	1	10	14	0	0	0	0	0	normal	skill	0	s_dismembercast_	2haxe	0		weapon	0	0	1					
+Reign_in_Blood	o_reign_in_blood	Target Object	1	10	10	0	0	0	0	0	normal	skill	0	s_reigninbloodcast_	2haxe	0		weapon	0	0	1					
+Rampage	o_b_rampage	No Target	0	10	10	0	12	0	0	0	normal	skill	0		2haxe	0		weapon	0	0		1				
+Killing_Swing	o_killing_swing_birth	Target Area	2	16	16	0	0	2	3	0	normal	skill	0	s_killingswingcast_	2haxe	1		weapon	0	0	1					
+// AXES																										
+Cut_Through	o_cut_through	Target Object	1	8	12	0	0	0	0	0	normal	skill	0	s_mutilationcast_	axe	0		weapon	0	0	1					
+Crippling_Lunge	o_crippling_lunge	Target Object	2	10	15	0	0	0	0	1	normal	skill	0	s_choppinglungecast_	axe	0		weapon	0	0	1		1			
+Massacre	o_b_massacre	No Target	0	10	10	0	12	0	0	0	normal	skill	0		axe	0		weapon	0	0		1				
+Execution	o_execution	Target Object	1	14	15	0	0	0	0	0	normal	skill	0	s_executioncast_	axe	0		weapon	0	0	1					
+// MACES																										
+Onslaught	o_onslaught	Target Object	1	12	16	0	0	0	0	0	normal	skill	0	s_onslaughtcast_	mace	1		weapon	0	0	1			1		
+Armor_Break	o_armor_break	Target Object	1	8	10	0	0	0	0	0	normal	skill	0	s_armorbreakcast_	mace	0		weapon	0	0	1					
+Hammer_and_Anvil	o_b_hammer_and_anvil	No Target	0	10	8	0	12	0	0	0	normal	skill	0		mace	1		weapon	0	0		1				
+Knockout	o_knockout	Target Object	1	12	12	0	0	0	0	0	normal	skill	0	s_knockoutcast_	mace	0		weapon	0	0	1					
+// STAVES																										
+Hail_of_Blows	o_hail_of_blows	Target Object	1	8	12	0	0	0	0	0	normal	skill	0	s_hailofblowscast_	staff	1		weapon	0	0	1					
+Step_Aside	o_step_aside	Target Object	3	10	14	0	0	0	0	1	normal	skill	0	s_stepasidecast_	staff	1		weapon	0	0	1		1			
+Unwavering_Stance	o_b_unwavering_stance	No Target	0	10	10	0	12	0	0	0	normal	skill	0		staff	0		weapon	0	0		1				
+Peacemaker	o_peacemaker	Target Point	1	12	18	0	0	0	0	1	normal	skill	0	s_peacemakercast_	staff	0		weapon	0	0	1			1		
+// SHIELDS																										
+Raise_Shield	o_b_shield_raised	No Target	1	12	14	0	3	0	0	0	normal	skill	0		shield	0		weapon	0	0				1		
+Breakthrough	o_breakthrough_birth	Target Area	1	12	16	0	0	1	3	0	normal	skill	0	s_breakthroughcast_	shield	1		weapon	0	0	1					
+Ram	o_ram	Target Object	1	8	12	0	0	0	0	0	normal	skill	0	s_ramcast_	shield	0		weapon	0	0	1					
+Defensive_Stance	o_b_defence_stance	No Target	1	10	10	0	12	0	0	0	normal	skill	0		shield	0		weapon	0	0				1		
+// DAGGERS																										
+Double_Jab	o_double_jab	Target Object	1	10	12	0	0	0	0	0	normal	skill	0	s_doublejabcast_	dagger	0		weapon	0	0	1					
+Gaping_Wound	o_gaping_wound	Target Object	1	12	14	0	0	0	0	0	normal	skill	0	s_gappingwoundcast_	dagger	0		weapon	0	0	1					
+Deadly_Trick	o_deadly_trick	Target Object	1	12	16	0	0	0	0	1	normal	skill	0	s_deadlytrickcast_	dagger	0		weapon	0	0	1			1		
+Painful_Stabs	o_b_painful_stabs	No Target	0	10	10	0	12	0	0	0	normal	skill	0		dagger	0		weapon	0	0		1				
+Coup_de_Grace	o_coup_de_grace	Target Object	1	12	18	0	0	0	0	0	normal	skill	0	s_coupdegracecast_	dagger	0		weapon	0	0	1					
+// DUAL WIELDING																										
+Series_of_Strikes	o_series_of_strikes	Target Object	1	12	12	0	0	0	0	0	normal	skill	0	s_seriesofstrikes_	dual	0		utility	0	0	1					
+Deflect	o_b_deflect	No Target	1	12	14	0	1	0	0	0	normal	skill	0		dual	0		utility	0	0				1		
+Enough_For_Everyone	o_enough_for_everyone	Target Object	1	4	10	0	0	0	0	0	normal	skill	0	s_enoughforeveryone_	dual	0		utility	0	0	1			1		
+Honed_Moves	o_b_honed_moves	No Target	0	12	12	0	12	0	0	0	normal	skill	0		dual	0		utility	0	0				1		
+Whirlwind	o_whirlwind	Target Object	1	30	30	0	0	0	0	1	normal	skill	0	s_whirlwind_	dual	0		utility	0	0	1			1		
+// SPEARS																										
+Nail_Down	o_nail_down	Target Object	2	12	12	0	0	0	0	0	normal	skill	0	s_naildown_	spear	1		weapon	0	0	1					
+Piercing_Lunge	o_piercing_lunge_birth	Target Area	2	10	12	0	0	2	1	0	line	skill	0	s_piercinglunge_	spear	0	1	weapon	0	0	1					
+Intransigence	o_intransigence	No Target	0	12	10	0	0	0	0	0	normal	skill	0		spear	0		weapon	0	0				1		
+Pikemans_Stance	o_b_pikemanstance	No Target	0	10	10	0	12	0	0	0	normal	skill	0		spear	1		weapon	0	0		1				
+Regroup	o_regroup	Target Point	1	16	16	0	0	0	0	1	normal	skill	0	s_regroup_	spear	0		weapon	0	0				1		
+// COMBAT																										
+Seize_the_Initiative	o_seize_the_initiative	Target Object	range	10	14	0	1	0	0	0	normal	skill	0	s_siezetheinitiative_	combat	0			0	0	1					
+War_Cry	o_war_cry_birth	Target Area	9	16	8	10	0	19	19	0	circle	skill	0	s_warcrycast_	combat	0			0	0				1		
+Offensive_Tactics	o_b_tactics_off	No Target	1	24	16	0	1	0	0	0	normal	skill	0		combat	0			0	0				1		
+Defensive_Tactics	o_b_tactics_def	No Target	1	24	16	0	1	0	0	0	normal	skill	0		combat	0			0	0				1		
+Against_the_Odds	o_b_against_all	No Target	0	60	10	0	2	0	0	0	normal	skill	0		combat	0			0	0				1		
+Thirst_for_Battle	o_b_battle_thirst	No Target	0	30	24	0	8	0	0	0	normal	skill	0		combat	0			0	0				1		
+Finisher	o_finisher	Target Object	2	10	18	0	1	0	0	1	normal	skill	0	s_finishercast_	combat	0			0	0	1		1			
+// ATHLETIC																										
+Power_Kick	o_power_kick	Target Object	1	5	8	0	1	0	0	0	normal	skill	0	s_powerkick_	athletic	1			0	0	1					
+Sweep	o_sweep_birth	Target Area	1	10	12	0	1	1	3	1	normal	skill	0	s_sweep_	athletic	0			0	0	1			1		
+Sudden_Strike	o_sudden_strike	Target Object	1	12	16	0	1	0	0	0	normal	skill	0	s_suddenstrike_	athletic	0			0	0	1					
+Dash	o_dash	Target Point	3	20	20	0	0	0	0	1	normal	skill	0	s_dash_	athletic	0			0	0			1			
+Elusiveness	o_b_elusive	No Target	0	18	20	0	8	0	0	0	normal	skill	0		athletic	0			0	0				1		
+Adrenaline_Rush	o_b_adrenaline	No Target	0	60	10	0	8	0	0	0	normal	skill	0		athletic	0			0	0				1		
+// SURVIVAL																										
+Cauterize_Wounds	o_causterize_wounds	No Target	1	1	2	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Set_Bed	object	No Target	0	1	0	0	0	0	0	1	normal	skill	0		none	0			0	0				1		
+Set_Campfire	o_set_campfire	Target Point	1	1	0	0	0	0	0	1	normal	skill	0		none	0			0	0				1		
+First_Aid	o_first_aid	No Target	1	120	10	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Will_To_Survive	o_b_will_to_survive	No Target	1	90	16	0	15	0	0	0	normal	skill	0		none	0			0	0				1		
+// PYRO																										
+Fire_Barrage	o_fire_barrage_birth	Target Point	5	3	8	12	0	0	0	0	normal	spell	1	s_barragecast_	pyromancy	0	1		10	-10					1	
+Flame_Ring	o_flame_ring_birth	Target Area	1	12	20	10	0	11	11	0	circle	spell	0		pyromancy	0	1		0	10					1	
+Flame_Wave	o_flame_wave_birth	Target Area	3	6	12	18	0	3	3	0	pyramid	spell	0	s_hellbreathcast_	pyromancy	0	1		15	0					1	
+Magma_Rain	o_magma_rain_birth	Target Area	3	20	36	8	0	3	3	0	normal	spell	1	s_meteorraincast_	pyromancy	0	1		40	-20					1	
+Melting_Ray	o_melting_ray_birth	Target Point	5	16	30	14	0	0	0	0	normal	spell	1	s_meltingraycast_	pyromancy	0	1		30	15					1	
+Incineration	o_incineration_birth	Target Object	6	8	20	15	0	0	0	0	normal	spell	1	s_incenerationcast_	pyromancy	0	1		25	25					1	
+Inferno	o_inferno_birth	Target Area	2	24	60	20	0	5	5	0	normal	spell	1	s_infernocast_	pyromancy	0	1		50	0					1	
+// GEO																										
+Runic_Boulder	o_runic_boulder_birth	Target Point	5	2	20	0	0	0	0	0	normal	spell	1	s_bouldercast_	geomancy	1	1		15	0					1	
+Stone_Armor	o_b_stone_armor	No Target	0	20	20	0	4	0	0	0	normal	spell	0		geomancy	0	1		-10	x					1	
+Stone_Spikes	o_stone_spikes_birth	Target Object	5	14	32	0	0	3	3	0	normal	spell	1	s_rocky_spikescast_	geomancy	1	1		30	10					1	
+Petrification	o_petrification_birth	Target Object	5	32	24	0	0	3	3	0	normal	spell	0	s_petrificationcast_	geomancy	0	1		40	0					1	
+Earth_Quake	o_earth_quake_bitrh	Target Object	5	14	36	0	0	5	5	0	normal	spell	1	s_earthquakecast_	geomancy	0	1		20	25					1	
+Boulder_Toss	o_boulder_toss_birth	Target Point	5	20	42	0	0	0	0	0	normal	spell	1	s_bouldercast_	geomancy	0	1		40	0					1	
+Runic_Explosion	o_runic_explosion_birth	Target Object	5	24	50	0	0	5	5	0	normal	spell	1	s_runic_explosioncast_	geomancy	1	1		50	0					1	
+// ELECTRO																										
+Discharge	o_discharge_birth	Target Point	7	2	10	0	0	0	0	0	normal	spell	1	s_discharge_cast_	electromancy	0	1		5	35					1	
+Impulse	o_impulse_birth	Target Area	1	10	20	10	0	11	11	0	circle	spell	0	s_impulse_cast_	electromancy	1	1		-10	50					1	
+Static_Field	o_static_field_birth	No Target	0	12	26	0	0	0	0	0	normal	spell	0		electromancy	0	1		15	50					1	
+Short_Circuit	o_short_circuit_birth	No Target	0	14	24	0	0	0	0	0	normal	spell	1	s_shortcircuit_cast_	electromancy	0	1		10	65					1	
+Ball_Lightning	o_ball_lightning_birth	Target Point	4	26	50	0	0	0	0	0	normal	spell	0	s_balllighting_cast_	electromancy	0	1		20	20					1	
+Chain_Lightning	o_chain_lightning_birth	Target Object	6	16	36	0	0	0	0	0	normal	spell	1	s_chainlighting_cast_	electromancy	0	1		25	40					1	
+Tempest	o_tempest_birth	Target Object	5	30	60	0	0	0	0	0	normal	spell	1		electromancy	0	1		33	30					1	
+// ARMOR																										
+Brace_For_Impact	o_b_brace_for_impact	No Target	0	8	12	0	2	0	0	0	normal	skill	0		armor	0			0	0				1		
+Unyielding_Defence	o_unyielding_defence	Target Point	1	10	14	0	0	0	0	1	normal	skill	0		armor	0			0	0				1		
+Active_Defence	o_active_defence_birth	Target Area	1	16	16	0	0	1	3	0	normal	skill	0	s_feint_maneuver_cast_	armor	0			0	0	1			1		
+Battering_Ram	o_battering_Ram	Target Object	3	30	24	0	0	0	0	1	normal	skill	0	s_counteroffensive_cast_	armor	0	1		0	0	1		1			
+// MAGIC MASTERY																										
+Seal_of_Finesse	o_b_seal_finesse	No Target	0	12	10	0	10	0	0	0	normal	spell	0		magic_mastery	0			-50	x					1	
+Seal_of_Power	o_b_seal_power	No Target	0	20	18	0	5	0	0	0	normal	spell	1		magic_mastery	0			5	x					1	
+Seal_of_Insight	o_seal_of_insight_birth	No Target	0	14	10	0	0	0	0	0	normal	spell	0		magic_mastery	0			5	x					1	
+Seal_of_Cleansing	o_seal_of_cleansing	Target Object	6	24	14	0	0	3	3	0	normal	spell	1		magic_mastery	0	1		10	x					1	
+Seal_of_Shackles	o_seal_of_shackles	Target Object	5	26	24	0	0	0	0	0	normal	spell	1		magic_mastery	0	1		15	x					1	
+Seal_of_Reflection	o_seal_of_reflection	Target Object	6	30	24	0	0	0	0	0	normal	spell	1		magic_mastery	0	1		15	x					1	
+// UNDEAD																										
+Darkbolt	o_darkball_birth	Target Object	6	3	13	12	0	0	0	0	normal	spell	1		necromancy	0			13	66					1	
+Dark_Blessing	o_darkblessing_birth	Target Ally	vis	9	26	0	0	0	0	0	normal	spell	0		necromancy	0			0	x					1	
+Dark_Ressurection	o_ressurection_birth	Target Object	6	26	33	0	0	0	0	0	normal	spell	0		necromancy	0			33	x					1	
+Curse	o_cursebirth	Target Object	vis	18	18	0	0	0	0	0	normal	spell	0		necromancy	0			13	0					1	
+Sign_of_Darkness	o_sign_of_darkness_birth	Target Point	vis	9	13	0	0	0	0	0	normal	spell	0		necromancy	0			13	x					1	
+Curse_of_Weakness	o_curse_of_weakness_birth	Target Object	vis	13	13	0	13	0	0	0	normal	spell	0		necromancy	0			9	x					1	
+Necrophagy	o_necrophagy	Target Object	1	1	0	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Death_Touch	o_death_touch	Target Object	6	13	26	0	0	0	0	0	normal	spell	0		necromancy	0			9	33					1	
+Soul_Sacrifice	o_soul_sacrifice	Target Ally	8	9	13	0	0	0	0	0	normal	spell	0		necromancy	0			13	x					1	
+Sigil_Of_Binding	o_binding_sigil	Target Ally	8	18	18	0	0	0	0	0	normal	spell	0		necromancy	0			13	x					1	
+Dissipation	o_dissipation	Target Object	1	13	13	0	0	0	0	0	normal	spell	0		necromancy	0			0	x					1	
+Grave_Cold	o_grave_cold_birth	Target Area	1	18	26	0	0	1	3	0	normal	skill	0		none	0			0	0					1	
+Bone_Throw	o_bone_throw_birth	Target Object	4	8	12	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Strangling_Grasp	o_strangling_grasp	Target Object	2	8	8	0	0	0	0	1	normal	skill	0		none	0			0	0	1		1			
+Deadly_Premonition	o_deadly_premonition	Target Object	8	9	9	0	0	0	0	0	normal	skill	0	s_deadlypremonition_	none	0			9	0				1		
+Wraith_Summoning	o_wraith_summoning	Target Point	6	13	33	0	0	0	0	0	normal	skill	0	s_wraithsummon_	none	0			13	0	1					
+Essence_Leech	o_essence_leech	Target Ally	7	9	18	0	0	0	0	0	normal	spell	0	s_essence_leech_	necromancy	0			9	x					1	
+Elder_Ritual_of_Resurrection	o_elder_ressurection_birth	No Target	6	30	66	0	0	11	11	0	normal	skill	0		none	0			66	0	1					
+// PROLOGUE STATUES																										
+Blood_Puddle		Target Area	4	5	0	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	0					1	
+Blood_Clot		Target Object	1	5	0	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	0					1	
+Summon_Zombie		Target Point	4	5	0	0	0	4	3	0	normal	spell	0		necromancy	0			0	x					1	
+Unholy_Ritual		No Target	1	5	0	0	0	1	3	0	normal	spell	0		necromancy	0			0	x					1	
+// PROLOGUE ARCHON																										
+Bestial_Charge	o_bestial_charge_birth	Target Object	5	4	0	0	0	0	0	0	normal	skill	0		none	0			0	0			1			
+Backwards_Dash	o_backwards_dash	Target Point	1	4	0	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Phantom_Bats	o_phantom_bats_birth	Target Area	3	4	0	0	0	3	3	0	normal	spell	0		necromancy	0			0	0					1	
+Swipe	o_swipe_birth	Target Area	1	0	0	0	0	1	3	0	normal	skill	0		none	0			0	0	1					
+Corpse_Devourment	o_corpse_devourment	Target Object	1	0	50	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+// PROSELYTES																										
+MDPR_Wild_Swipe	o_swipe_birth	Target Area	1	8	12	0	0	1	3	0	normal	skill	0		none	0			0	x	1					
+Vampiric_Blood	o_vampiric_blood	Target Object	1	13	9	0	0	0	0	0	normal	skill	0		none	0			0	0					1	
+Blood_Craze	o_b_blood_craze	No Target	0	18	26	0	10	0	0	0	normal	skill	0		none	0			0	0				1		
+Willing_Sacrifice	o_b_willing_sacrifice	No Target	0	99	13	0	10	0	0	0	normal	spell	1		sanguimancy	0			0	x					1	
+Chain_Strike	o_chain_strike	Target Object	1	6	18	0	0	0	0	0	normal	skill	1	s_chainstrike_	none	0			0	0	1					
+Lash_Blessing	o_lash_blessing	Target Ally	1	1	9	0	0	0	0	0	normal	skill	1	s_lashblessing_	none	0			0	0				1		
+Scream_of_Doom	o_scream_of_doom_birth	Target Object	6	9	6	0	0	0	0	0	normal	skill	1		none				0	0				1		
+Bloodletting	o_bloodletting	Target Object	1	9	9	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Life_Leech	o_lifeleech_birth	Target Object	2	9	26	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	0					1	
+Mark_of_the_Feast	o_mark_of_feast_birth	Target Object	vis	13	18	0	30	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Sacrificial_blood	o_sacrificial_blood	Target Object	vis	13	18	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Vampire_Rune	o_vampire_rune_birth	Target Point	vis	18	26	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Summon_Blood_Golem	o_summon_blood_golem_bith	Target Point	vis	66	66	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Flesh_Explosion	o_flesh_explosion	No Target	0	0	0	0	0	11	11	0	normal	skill	0		none	0			0	0				1		
+For_Whom_the_Bell_Tolls	o_for_whom_the_bell_tolls	No Target	0	66	13	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Unholy_Anthems	o_unholy_anthems	No Target	0	18	13	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x	1					
+Tremor_Strike	o_tremor_strike_birth	Target Area	3	6	33	0	0	3	2	0	normal	skill	0		none	0			0	0	1					
+Fling_Away	o_fling_away	Target Object	1	9	33	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Tongue_Pull	o_tongue_pull_birth	Target Object	5	6	26	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Tongue_Push	o_tongue_push_birth	Target Object	1	6	13	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Tongue_Leech	o_tongue_leech	Target Object	5	9	33	0	0	0	0	0	normal	skill	0		none	0			0	0					1	
+Murkwalk	o_murk_walk	Target Point	6	6	13	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Embrace_the_Murk	o_embrace_the_murk	Target Point	4	26	26	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Murk_Strike	o_murk_strike	Target Object	9	13	18	0	0	0	0	1	normal	skill	0		none	0			0	0	1		1			
+Blood_Spit	o_blood_spit_bitth	Target Object	5	4	9	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Blister_Burst	o_blister_burst_birth	Target Area	1	9	9	0	0	11	11	0	normal	skill	0		none	0			0	0				1		
+Summon_the_Worm	o_summon_the_worm_birth	Target Point	6	3	13	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Wormrot	o_wormrot	Target Object	6	6	13	0	0	0	0	0	normal	spell	0		sanguimancy	0			0	x					1	
+Flesh_Pile	o_b_flesh_pile	No Target	0	9	13	0	1	11	11	0	normal	skill	0		none	0			0	0						
+Cancel_Flesh_Pile	скрытая	No Target	0	0	0	0	0	11	11	0	normal	skill	0		none	0			0	0						
+Tentacle_Arm	o_tentacle_arm_birth	Target Point	9	1	6	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Reposition	o_reposition	Target Point	9	3	0	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Grimace_of_Terror	o_grimace_of_terror_birth	Target Object	4	9	9	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Destructive_Force	o_destructive_force	Target Point	1	18	26	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Herald_of_Ruination	o_herald_of_ruination_birth	Target Area	4	13	33	8	0	4	3	0	normal	skill	1		none	0	1		40	-20						
+Brand_of_Anguish	o_brand_of_anguish	Target Object	1	6	9	0	0	0	0	0	normal	skill	0	s_BrandofAnguish_	none	0			0	0	1					
+Coals_and_Embers	o_coals_and_embers_birth	Target Area	3	9	18	18	0	2	3	0	pyramid_shift	skill	0	s_Coals_and_Embers_	none	0	1		15	0						
+Burning_Offering	o_burning_offering	Target Object	6	3	33	0	0	0	0	0	normal	skill	0	s_Burning_Offering_	none	0			0	0				1		
+// BRIGANDS																										
+Grab_Em	o_grab_em	Target Object	1	10	6	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Loud_Barking	o_loud_barking	No Target	0	30	6	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Sic_Em	o_sic_em	Target Object	12	10	6	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Net_Throw	o_net_throw	Target Object	4	999	12	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Dead_or_Alive	o_dead_or_alive	Target Object	vis	30	12	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Raise_the_Banner	o_raise_the_banner	No Target	0	30	6	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+// ANCIENT TROLL																										
+Rock_Toss	o_rock_toss_birth	Target Area	16	10	80	0	0	2	2	0	normal	skill	0		none	0			0	0				1		
+Deafening_Roar	o_deafening_roar	No Target	0	12	40	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Shockwave	o_shockwave_birth	Target Area	3	3	30	18	0	3	3	0	pyramid	skill	0		none	0			0	0	1					
+Troll_Regeneration	o_b_troll_regeneration	No Target	0	16	60	0	4	0	0	0	normal	skill	0		none	0			0	0				1		
+Troll_Clout	o_troll_clout	Target Object	3	0	0	0	0	0	0	0	normal	attack	0		none	1			0	0	1					
+// BEASTS																										
+Lacerate	o_lacerate	Target Object	1	10	25	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+Howl	o_howl	No Target	0	30	0	0	0	0	0	0	normal	skill	0		none	0			0	0				1		
+Charge_Ram	o_charge_ram	Target Object	6	10	10	0	0	0	0	1	normal	skill	0		none	0			0	0	1		1			
+Web_Spit	o_web_spit	Target Object	5	35	25	0	0	0	0	1	normal	skill	0		none	0			0	0	1					
+Rapid_Flight	o_rapid_flight	Target Point	7	20	20	0	0	0	0	1	normal	skill	0		none	0			0	0			1			
+Peck	o_peck	Target Object	1	10	6	0	0	0	0	0	normal	skill	0	s_peck_	none	1			0	0	1					
+Tremor_Strike_Troll	o_tremor_strike_troll_birth	Target Area	3	3	30	18	0	3	3	0	pyramid	skill	0		none	0			0	0	1					
+Taste_the_Flesh	o_taste_the_flesh	Target Object	1	10	25	0	0	0	0	0	normal	skill	0		none	0			0	0	1					
+// MANTICORE																										
+Lion_Charge	o_lion_charge	Target Point	7	4	20	0	0	0	0	1	normal	skill	0		none	0			0	0			1			
+Primal_Aether	o_primal_aether_birth	Target Object	7	4	30	0	0	0	0	0	normal	spell	0		none	0			0	0					1	
+Vengeance_of_the_Dead	o_vengeance_of_the_dead_birth	No Target	0	8	30	0	0	0	0	0	normal	spell	0		none	0			0	0					1	
+Animated_Servant	o_animated_servant_birth	No Target	0	4	30	0	0	0	0	0	normal	spell	0		none	0			0	x					1	
+Bone_Fires	o_bone_fires_birth	No Target	0	16	30	0	0	0	0	0	normal	spell	0		none	0			0	0					1	
+Deadly_Tail	o_deadly_tail	Target Object	1	0	0	0	0	0	0	0	normal	attack	0		none	1			0	0	1					
