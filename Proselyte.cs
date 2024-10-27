@@ -85,12 +85,80 @@ public class Proselyte : Mod
             collisionShapeFlags: CollisionShapeFlags.Circle
         );
 
-        o_mdpr_wild_swipe.ApplyEvent(ModFiles,
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_Alarm_10.gml", EventType.Alarm, 10),
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_Step_0.gml", EventType.Step, 0),
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_Other_10.gml", EventType.Other, 10),
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_Other_25.gml", EventType.Other, 25)
+        o_mdpr_wild_swipe.ApplyEvent(
+            new MslEvent(eventType: EventType.Create, subtype: 0, code: @"
+                event_inherited()
+                scr_damage_init()
+                scr_light_off()
+                scr_set_lt()
+                is_execute = false
+                cast_frame = 2
+                speed = 0
+                image_speed = 1
+                image_xscale = 0
+                destroy_on_cast_frame = false
+                alarm[10] = 1
+                scr_audio_play_at(snd_prologue_boss_swipe)
+                type = ""noWeapon""
+            "),
+            new MslEvent(eventType: EventType.Alarm, subtype: 10, code: @"
+                with (owner)
+                {
+                    with (scr_guiAnimation_ext(x, y, s_swipeswing, 1, 1, 0, 0xFFFFFF, 0))
+                        owner = other.id
+                }
+            "),
+            new MslEvent(eventType: EventType.Step, subtype: 0, code: @"
+                image_angle = direction
+                image_xscale = lerp(image_xscale, 1, 0.2)
+                if (!is_execute)
+                {
+                    if (image_index >= (cast_frame + 0.5))
+                    {
+                        is_execute = true
+                        with (o_skill_aoe_zone)
+                        {
+                            if (main_owner == other.owner)
+                                alarm[1] = 1
+                        }
+                    }
+                }
+            "),
+            new MslEvent(eventType: EventType.Other, subtype: 10, code: @"
+                if (!instance_exists(owner))
+                    return;
+                var hit = 0
+                if (target.object_index != o_skill_aoe_zone)
+                {
+                    with (owner)
+                    {
+                        hit = scr_skill_attack(""noWeapon"")
+                        if hit
+                        {
+                            with (other.target)
+                            {
+                                with (scr_guiAnimation(s_swipehit, 1, 1, 0))
+                                    scr_set_lt(sprite_index)
+                            }
+                        }
+                    }
+                    if hit
+                    {
+                        with (instance_create(target.x, target.y, o_spellimpact))
+                            col = 0xFFFFFF
+                    }
+                }
+            "),
+            new MslEvent(eventType: EventType.Other, subtype: 25, code: @"
+                with (owner)
+                {
+                    scr_damage_chance_reset()
+                    Blunt_Damage = 0
+                    Rending_Damage = (8 + 0.4 * Arms_DEF + 0.25 * STR) * scr_mod_num_of_empty_hands()
+                    Knockback_Chance = (45 + 1.5 * STR) + 50 * scr_mod_num_of_empty_hands()
+                    Hit_Chance += 5
+                }
+            ")
         );
 
         o_mdpr_wild_swipe.ApplyEvent(
@@ -109,8 +177,13 @@ public class Proselyte : Mod
             collisionShapeFlags: CollisionShapeFlags.Circle
         );
 
-        o_mdpr_wild_swipe_birth.ApplyEvent(ModFiles,
-            new MslEvent("gml_Object_o_mdpr_wild_swipe_birth_Create_0.gml", EventType.Create, 0)
+        o_mdpr_wild_swipe_birth.ApplyEvent(
+            new MslEvent(eventType: EventType.Create, subtype: 0, code: @"
+                event_inherited()
+                scr_light_off()
+                is_flying = true
+                spell = o_mdpr_wild_swipe
+            ")
         );
 
         UndertaleGameObject o_skill_mdpr_wild_swipe = Msl.AddObject(
@@ -133,14 +206,46 @@ public class Proselyte : Mod
             collisionShapeFlags: CollisionShapeFlags.Circle
         );
 
-        o_skill_mdpr_wild_swipe.ApplyEvent(ModFiles, 
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Create_0.gml", EventType.Create, 0),
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Other_17.gml", EventType.Other, 17),
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Other_14.gml", EventType.Other, 14)
+        o_skill_mdpr_wild_swipe.ApplyEvent( 
+            new MslEvent(eventType: EventType.Create, subtype: 0, code: @"
+                event_inherited()
+                skill = ""MDPR_Wild_Swipe""
+                ds_list_add(attribute, ds_map_find_value(global.attribute, ""STR""))
+                xx = 33
+                button = ""5""
+                scr_skill_atr()
+                can_learn = true
+                main_spell = o_mdpr_wild_swipe
+                target_group = o_enemy
+                if (global.language == 3)
+                {
+                    info = ""- 至少需要一个兵器槽位空置""
+                }
+                else
+                    info = ""- At least one weapon slot needs to be empty""
+            "),
+            new MslEvent(eventType: EventType.Other, subtype: 17, code: @"
+                if instance_exists(owner)
+                {
+                    var _num_empty = scr_mod_num_of_empty_hands()
+                    ds_map_replace(data, ""Damage"", (8 + 0.4 * owner.Arms_DEF + 0.25 * owner.STR) * _num_empty)
+                    ds_map_replace(data, ""Knockback_Chance"", (45 + 1.5 * owner.STR) + 50 * _num_empty)
+                }
+                event_inherited()
+            "),
+            new MslEvent(eventType: EventType.Other, subtype: 14, code: @"
+                if scr_mod_num_of_empty_hands() > 0
+                    event_inherited()
+            ")
         );
 
-        o_skill_mdpr_wild_swipe_ico.ApplyEvent(ModFiles, 
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_ico_Create_0.gml", EventType.Create, 0)
+        o_skill_mdpr_wild_swipe_ico.ApplyEvent( 
+            new MslEvent(eventType: EventType.Create, subtype: 0, code: @"
+                event_inherited()
+                child_skill = o_skill_mdpr_wild_swipe
+                event_perform_object(child_skill, ev_create, 0)
+                yy += 180
+            ")
         );
 
         // Write Skills Stat
