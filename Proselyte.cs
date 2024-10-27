@@ -25,6 +25,7 @@ public class Proselyte : Mod
         Msl.GetSprite("s_vampirism_branch").OriginY = 0;
 
         AdjustSkillIcon("s_skills_mdpr_swipe");
+        AdjustSkillIcon("s_skills_mdpr_rend_flesh");
 
         // Add Functions
 
@@ -33,6 +34,7 @@ public class Proselyte : Mod
         // Add Skills
 
         PatchSkill_Wild_Swipe();
+        PatchSkill_Rend_Flesh();
 
         // Add Skill Branch
 
@@ -64,6 +66,7 @@ public class Proselyte : Mod
         // Delete me!
         ExportTable("gml_GlobalScript_table_skills_stat");
         ExportTable("gml_GlobalScript_table_skills");
+        ExportTable("gml_GlobalScript_table_all_attribute");
     }
 
     private void PatchSkill_Wild_Swipe()
@@ -150,6 +153,139 @@ public class Proselyte : Mod
             MP: 12,
             AOE_Lenght: 1,
             AOE_Width: 3,
+            Attack: true
+        );
+    }
+
+    private void PatchSkill_Rend_Flesh()
+    {
+        UndertaleGameObject o_skill_mdpr_rend_flesh = Msl.AddObject(
+            name: "o_skill_mdpr_rend_flesh", 
+            spriteName: "s_skills_mdpr_rend_flesh", 
+            parentName: "o_skill", 
+            isVisible: true, 
+            isPersistent: false, 
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_skill_mdpr_rend_flesh,
+            eventType: EventType.Create, subtype: 0,
+            eventCode: @"
+                event_inherited()
+                skill = ""MDPR_Rend_Flesh""
+                xx = 33
+                button = ""5""
+                scr_skill_atr()
+                can_learn = true
+            "
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_skill_mdpr_rend_flesh,
+            eventType: EventType.Other, subtype: 14,
+            eventCode: @"
+                if scr_mod_num_of_empty_hands() > 0
+                    event_inherited()
+            "
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_skill_mdpr_rend_flesh,
+            eventType: EventType.Other, subtype: 17,
+            eventCode: @"
+                if instance_exists(owner)
+                {
+                    var _num_empty = scr_mod_num_of_empty_hands()
+                    ds_map_replace(data, ""Damage"", (16 + 0.4 * owner.Arms_DEF + 0.25 * owner.STR) * _num_empty)
+                    ds_map_replace(data, ""Armor_Piercing"", (45 + 1.5 * owner.STR) + 50 * _num_empty)
+                }
+                event_inherited()
+            "
+        );
+
+        UndertaleGameObject o_skill_mdpr_rend_flesh_ico = Msl.AddObject(
+            name: "o_skill_mdpr_rend_flesh_ico", 
+            spriteName: "s_skills_mdpr_rend_flesh",
+            parentName: "o_skill_ico", 
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_skill_mdpr_rend_flesh_ico,
+            eventType: EventType.Create, subtype: 0,
+            eventCode: @"
+                event_inherited()
+                child_skill = o_skill_mdpr_rend_flesh
+                event_perform_object(child_skill, ev_create, 0)
+                xshift = 226
+                yy += 60
+            "
+        );
+
+        UndertaleGameObject o_mdpr_rend_flesh = Msl.AddObject(
+            name: "o_mdpr_rend_flesh",
+            parentName: "o_target_spell",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_mdpr_rend_flesh,
+            eventType: EventType.Create, subtype: 0,
+            eventCode: @"
+                event_inherited()
+                alarm[0] = 1
+                type = ""noWeapon""
+            "
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_mdpr_rend_flesh,
+            eventType: EventType.Alarm, subtype: 0,
+            eventCode: @"
+                if instance_exists(target)
+                {
+                    with (owner)
+                    {
+                        scr_hit_deformation(other.target, o_hit_rapture)
+                        scr_skill_attack(""noWeapon"")
+                    }
+                }
+                event_inherited()
+            "
+        );
+
+        Msl.AddNewEvent(
+            objectName: o_mdpr_rend_flesh,
+            eventType: EventType.Other, subtype: 25,
+            eventCode: @"
+                with (owner)
+                {
+                    scr_damage_chance_reset()
+                    Bodypart_Damage = 99
+                    Armor_Piercing = (45 + 1.5 * STR) + 50 * scr_mod_num_of_empty_hands()
+                    Blunt_Damage = 0
+                    Rending_Damage = (16 + 0.4 * Arms_DEF + 0.25 * STR) * scr_mod_num_of_empty_hands()
+                    Hit_Chance += 5
+                }
+            "
+        );
+
+        Msl.InjectTableSkillsStat(
+            metaGroup: Msl.SkillsStatMetaGroup.PROSELYTES,
+            id: "MDPR_Rend_Flesh",
+            Object: "o_mdpr_rend_flesh",
+            Target: Msl.SkillsStatTarget.TargetObject,
+            Range: "1",
+            KD: 10,
+            MP: 25,
             Attack: true
         );
     }
