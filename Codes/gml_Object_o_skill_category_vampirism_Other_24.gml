@@ -1,6 +1,6 @@
 event_inherited()
 // Tier 1
-scr_guiLayoutOffsetUpdate(o_skill_scream_of_doom_ico, 24, 55, 1)
+scr_guiLayoutOffsetUpdate(o_skill_mdpr_baleful_scream_ico, 24, 55, 1)
 scr_guiLayoutOffsetUpdate(o_skill_vampiric_blood_ico, 62, 55, 1)
 scr_guiLayoutOffsetUpdate(o_skill_bloodletting_ico, 100, 55, 1)
 scr_guiLayoutOffsetUpdate(o_skill_mdpr_wild_swipe_ico, 138, 55, 1)

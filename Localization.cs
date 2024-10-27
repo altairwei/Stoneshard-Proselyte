@@ -37,6 +37,17 @@ public class Localization
     {
         Msl.InjectTableSkillsLocalization(
             new LocalizationSkill(
+                id: "MDPR_Baleful_Scream",
+                name: new Dictionary<ModLanguage, string>{
+                    {ModLanguage.English, "Baleful Scream"},
+                    {ModLanguage.Chinese, "哀号"}
+                },
+                description: new Dictionary<ModLanguage, string>{
+                    {ModLanguage.English, @"Lets out a shriek, dealing ~p~/*Psionic_Damage*/ Psionic Damage~/~. With ~w~75%~/~ chance ~w~Dazes~/~ the target or causes it to ~w~Stagger~/~ for ~w~2~/~ turns."},
+                    {ModLanguage.Chinese, @"发出一声尖啸，对目标造成~p~/*Psionic_Damage*/点灵术伤害~/~。有~w~75%~/~的几率令目标~w~眩晕~/~或~w~失衡~/~~w~2~/~回合。"}
+                }
+            ),
+            new LocalizationSkill(
                 id: "MDPR_Wild_Swipe",
                 name: new Dictionary<ModLanguage, string>{
                     {ModLanguage.English, "Wild Swipe"},
