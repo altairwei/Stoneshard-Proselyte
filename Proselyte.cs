@@ -19,42 +19,20 @@ public class Proselyte : Mod
 
     public override void PatchMod()
     {
+        // Handle Sprites
+
         Msl.GetSprite("s_vampirism_branch").OriginX = 0;
         Msl.GetSprite("s_vampirism_branch").OriginY = 0;
 
-        // Skill - Wild Swipe
+        AdjustSkillIcon("s_skills_mdpr_swipe");
 
-        UndertaleGameObject o_skill_mdpr_wild_swipe = Msl.AddObject(
-            name: "o_skill_mdpr_wild_swipe", 
-            spriteName: "s_skills_swipe02", 
-            parentName: "o_skill", 
-            isVisible: true, 
-            isPersistent: false, 
-            isAwake: true,
-            collisionShapeFlags: CollisionShapeFlags.Circle
-        );
+        // Add Functions
 
-        UndertaleGameObject o_skill_mdpr_wild_swipe_ico = Msl.AddObject(
-            name: "o_skill_mdpr_wild_swipe_ico", 
-            spriteName: "s_skills_swipe02", 
-            parentName: "o_skill_ico", 
-            isVisible: true, 
-            isPersistent: false, 
-            isAwake: true,
-            collisionShapeFlags: CollisionShapeFlags.Circle
-        );
+        Msl.AddFunction(ModFiles.GetCode("scr_mod_num_of_empty_hands.gml"), "scr_mod_num_of_empty_hands");
 
-        o_skill_mdpr_wild_swipe.ApplyEvent(ModFiles, 
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Create_0.gml", EventType.Create, 0)
-        );
+        // Add Skills
 
-        o_skill_mdpr_wild_swipe_ico.ApplyEvent(ModFiles, 
-            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_ico_Create_0.gml", EventType.Create, 0)
-        );
-
-        // Write Skills Stat
-
-        SkillsStatPatching();
+        PatchSkill_Wild_Swipe();
 
         // Add Skill Branch
 
@@ -82,7 +60,110 @@ public class Proselyte : Mod
 
         Localization.TextTreesPatching();
         Localization.SkillTextsPatching();
+
+        // Delete me!
         ExportTable("gml_GlobalScript_table_skills_stat");
+        ExportTable("gml_GlobalScript_table_skills");
+    }
+
+    private void PatchSkill_Wild_Swipe()
+    {
+        // Skill - Wild Swipe
+
+        UndertaleGameObject o_mdpr_wild_swipe = Msl.AddObject(
+            name: "o_mdpr_wild_swipe",
+            spriteName: "s_Cleave",
+            parentName: "o_aoe_spell",
+            isVisible: false,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        o_mdpr_wild_swipe.ApplyEvent(ModFiles,
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_Alarm_10.gml", EventType.Alarm, 10),
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_Step_0.gml", EventType.Step, 0),
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_Other_10.gml", EventType.Other, 10),
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_Other_25.gml", EventType.Other, 25)
+        );
+
+        o_mdpr_wild_swipe.ApplyEvent(
+            new MslEvent("", EventType.Alarm, 0),
+            new MslEvent("if is_player(owner)\n    scr_allturn()", EventType.Destroy, 0),
+            new MslEvent("instance_destroy()", EventType.Other, 7),
+            new MslEvent("draw_self()", EventType.Draw, 0)
+        );
+
+        UndertaleGameObject o_mdpr_wild_swipe_birth = Msl.AddObject(
+            name: "o_mdpr_wild_swipe_birth",
+            parentName: "o_spelllbirth",
+            isVisible: true,
+            isPersistent: false,
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        o_mdpr_wild_swipe_birth.ApplyEvent(ModFiles,
+            new MslEvent("gml_Object_o_mdpr_wild_swipe_birth_Create_0.gml", EventType.Create, 0)
+        );
+
+        UndertaleGameObject o_skill_mdpr_wild_swipe = Msl.AddObject(
+            name: "o_skill_mdpr_wild_swipe", 
+            spriteName: "s_skills_mdpr_swipe", 
+            parentName: "o_skill", 
+            isVisible: true, 
+            isPersistent: false, 
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        UndertaleGameObject o_skill_mdpr_wild_swipe_ico = Msl.AddObject(
+            name: "o_skill_mdpr_wild_swipe_ico", 
+            spriteName: "s_skills_mdpr_swipe", 
+            parentName: "o_skill_ico", 
+            isVisible: true, 
+            isPersistent: false, 
+            isAwake: true,
+            collisionShapeFlags: CollisionShapeFlags.Circle
+        );
+
+        o_skill_mdpr_wild_swipe.ApplyEvent(ModFiles, 
+            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Create_0.gml", EventType.Create, 0),
+            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Other_17.gml", EventType.Other, 17),
+            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_Other_14.gml", EventType.Other, 14)
+        );
+
+        o_skill_mdpr_wild_swipe_ico.ApplyEvent(ModFiles, 
+            new MslEvent("gml_Object_o_skill_mdpr_wild_swipe_ico_Create_0.gml", EventType.Create, 0)
+        );
+
+        // Write Skills Stat
+
+        Msl.InjectTableSkillsStat(
+            metaGroup: Msl.SkillsStatMetaGroup.PROSELYTES,
+            id: "MDPR_Wild_Swipe",
+            Object: "o_mdpr_wild_swipe_birth",
+            Target: Msl.SkillsStatTarget.TargetArea,
+            Range: "1",
+            KD: 8,
+            MP: 12,
+            AOE_Lenght: 1,
+            AOE_Width: 3,
+            Attack: true
+        );
+    }
+
+    private static void AdjustSkillIcon(string name)
+    {
+        UndertaleSprite ico = Msl.GetSprite(name);
+        ico.CollisionMasks.RemoveAt(0);
+        ico.IsSpecialType = true;
+        ico.SVersion = 3;
+        ico.OriginX = 12;
+        ico.OriginY = 12;
+        ico.GMS2PlaybackSpeed = 1;
+        ico.GMS2PlaybackSpeedType = AnimSpeedType.FramesPerGameFrame;
     }
 
     private static void ExportTable(string table)
@@ -97,21 +178,5 @@ public class Proselyte : Mod
                 lines.Select(x => string.Join('\t', x.Split(';')))
             );
         }
-    }
-
-    public static void SkillsStatPatching()
-    {
-        Msl.InjectTableSkillsStat(
-            metaGroup: Msl.SkillsStatMetaGroup.PROSELYTES,
-            id: "MDPR_Wild_Swipe",
-            Object: "o_swipe_birth",
-            Target: Msl.SkillsStatTarget.TargetArea,
-            Range: "1",
-            KD: 8,
-            MP: 12,
-            AOE_Lenght: 1,
-            AOE_Width: 3,
-            Attack: true
-        );
     }
 }

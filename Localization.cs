@@ -43,8 +43,8 @@ public class Localization
                     {ModLanguage.Chinese, "重扫"}
                 },
                 description: new Dictionary<ModLanguage, string>{
-                    {ModLanguage.English, @"Delivers a strike to three adjacent tiles with ~lg~+100%~/~ Knockback Chance."},
-                    {ModLanguage.Chinese, @"向三个邻近方格击打一次，本次击打击退几率~lg~+100%~/~。"}
+                    {ModLanguage.English, @"Deals ~w~/*Damage*/ Rending Damage~/~ to three adjacent tiles with ~w~/*Knockback_Chance*/%~/~ Knockback Chance (the damage is affected by the equipped ~w~gloves'~/~ Protection).##If both weapon slots are empty, then Damage ~w~is doubled~/~ and Knockback Chance is increased by an additional ~w~+50%~/~."},
+                    {ModLanguage.Chinese, @"向三个邻近方格击打一次，造成~w~/*Damage*/点撕裂伤害~/~，本次击打击退几率为~w~/*Knockback_Chance*/%~/~（伤害数值与所穿~w~手部护具~/~的防护有关）。##若两个兵器槽位都空置，那么伤害~w~翻倍~/~，且击退几率额外~w~+50%~/~。"}
                 }
             )
         );
